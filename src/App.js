@@ -1,25 +1,55 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+      title : 'React Simple Crud Aplication',
+      act:0,
+      index:'',
+      datas:[]
+    }
+  }
+
+  componentDidMount(){
+    this.refs.name.focus();
+  }
+
+  fSubmit = (e) =>{
+    e.prefentDefault();
+    console.log('try');
+
+    let datas = this.state.datas;
+    let name = this.refs.name.values;
+    let address = this.refs.address.values;
+
+    let data = {
+      name, address
+    }
+    datas.push(data);
+
+    this.setState({
+      datas:datas
+    });
+
+    this.refs.myForm.reset();
+    this.refs.name.focus();
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h2>{this.state.title}</h2>
+        <form ref="myForm" className="myForm">
+          <input type="text" ref="name" placeholder="Your Name" className="formField" />
+          <input type="text" ref="address" placeholder="Your Address" className="formField" />
+          <button onClick={this.fSubmit} className="myButton">Submit</button>
+        </form>
+        <pre>
+          
+        </pre>
       </div>
     );
   }
