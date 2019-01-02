@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount(){
     this.refs.name.focus();
   }
-
+// button submit - post
   fSubmit = (e) =>{
     e.preventDefault();
     console.log('try');
@@ -49,6 +49,7 @@ class App extends Component {
     this.refs.name.focus();
   }
 
+// button remove  
   fRemove = (i) => {
     let datas = this.state.datas;
     datas.splice(i,1);
@@ -60,6 +61,7 @@ class App extends Component {
     this.refs.name.focus();
   }
 
+// button edit  
   fEdit = (i) =>{
     let data = this.state.datas[i];
     this.refs.name.value = data.name;
@@ -73,6 +75,7 @@ class App extends Component {
     this.refs.name.focus();
   }
 
+// tampil web
   render() {
     let datas = this.state.datas;
     return (
