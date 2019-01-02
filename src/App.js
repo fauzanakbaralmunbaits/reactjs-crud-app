@@ -77,7 +77,7 @@ class App extends Component {
     let datas = this.state.datas;
     return (
       <div className="App">
-        <h2>{this.state.title}</h2>
+        <center> <h2>{this.state.title}</h2> </center>
         <form ref="myForm" className="myForm">
           <input type="text" ref="name" placeholder="Your Name" className="formField" />
           <input type="text" ref="address" placeholder="Your Address" className="formField" />
